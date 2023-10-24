@@ -1,13 +1,266 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* -------------------- */
+/* Custom properties    */
+/* -------------------- */
+
+:root{
+  /* font-sizes */
+  --fs-200: 1.2rem;
+  --fs-300: 1.3rem;
+  --fs-400: 1.8rem;
+  --fs-500: 2rem;
+  --fs-700: 2.7rem;
+
+  /* font-families */
+  --ff-sans: 'DM Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* -------------------- */
+/* Utility classes      */
+/* -------------------- */
+
+.card{
+  padding: 1.7rem;
+  border-radius: 0.8rem;
+}
+
+/* -------------------- */
+/* Reset                */
+/* -------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+section,
+img{
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 100%);
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img{
+  width: 100%;
+  display: block;
+}
+
+/* remove animations for people who have turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+  }
+}
+
+
+/* rem scaling */
+html{
+  font-size: 62.5%;
+}
+
+
+/* -------------------- */
+/* Main styles          */
+/* -------------------- */
+
+body {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-400);
+  font-weight: 400;
+  color: hsl(28, 10%, 53%);
+
+  background-color: hsl(27, 66%, 92%);
+}
+
+main{
+  display: flex;
+  justify-content: center;
+}
+
+.outer-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  max-width: 35rem;
+  width: 100%;
+  padding: 6rem min(2rem, 7%);
+}
+
+.cur-balance-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: hsl(33, 100%, 98%);
+  background-color: hsl(10, 79%, 65%);
+}
+
+h2{
+  font-size: var(--fs-300);
+}
+
+.balance-info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.balance-info h2{
+  opacity: 0.9;
+}
+
+.balance-info p{
+  font-size: var(--fs-500);
+  font-weight: 700;
+}
+
+.logo{
+  width: auto;
+  height: 100%;
+  aspect-ratio: 72 / 48;
+  padding: 0.6rem 0;
+}
+
+.spending-card{
+  background-color: hsl(33, 100%, 98%);
+}
+
+h1{
+  color: hsl(25, 47%, 15%);
+  font-size: var(--fs-500);
+  font-weight: 700;
+}
+
+.spending-bars{
+  padding: 2rem 0;
+  padding-top: 1rem;
+  border-bottom: 2px solid hsl(27, 66%, 92%);
+}
+
+.spending-card-bottom{
+  margin-top: 2rem;
+  font-size: var(--fs-300);
+}
+
+.total-spending-numbers{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-number{
+  font-size: var(--fs-700);
+  font-weight: 700;
+  color: hsl(25, 47%, 15%);
+}
+
+.total-spending-numbers-right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.percent-increase-number{
+  font-weight: 700;
+  color: hsl(25, 47%, 15%);
+}
+
+.spending-bars{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 4%;
+}
+
+.bar-block{
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  position: relative;
+
+  height: fit-content;
+  padding-top: 2.8rem;
+  text-align: center;
+  font-size: var(--fs-200);
+}
+
+.bar-label{
+  visibility: hidden;
+  position: absolute;
+  left: -0.6rem;
+  right: -0.6rem;
+  top: 0;
+
+  background-color: hsl(25, 47%, 15%);
+  color: hsl(33, 100%, 98%);
+  padding: 0.4rem;
+  border-radius: 0.35rem;
+}
+
+.bar-block:hover .bar-label{
+  visibility: visible;
+}
+
+
+.bar{
+  background-color: hsl(10, 79%, 65%);
+  border-radius: 0.35rem;
+}
+
+.bar.max-bar{
+  background-color: hsl(186, 34%, 60%);
+}
+
+.bar-block:hover .bar{
+  opacity: 0.7;
 }
