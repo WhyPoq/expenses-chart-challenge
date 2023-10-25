@@ -122,6 +122,8 @@ body {
 main{
   display: flex;
   justify-content: center;
+  
+  min-height: 100vh;
 }
 
 .outer-container{
@@ -129,7 +131,7 @@ main{
   flex-direction: column;
   gap: 1rem;
 
-  max-width: 35rem;
+  max-width: 40rem;
   width: 100%;
   padding: 6rem min(2rem, 7%);
 }
@@ -251,7 +253,6 @@ h1{
   visibility: visible;
 }
 
-
 .bar{
   background-color: hsl(10, 79%, 65%);
   border-radius: 0.35rem;
@@ -263,4 +264,11 @@ h1{
 
 .bar-block:hover .bar{
   opacity: 0.7;
+}
+
+
+@media (min-height: 34.38em){
+  main{
+    align-items: center;
+  }
 }
