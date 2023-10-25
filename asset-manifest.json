@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/expenses-chart-challenge/static/css/main.85d4ded3.css",
+    "main.css": "/expenses-chart-challenge/static/css/main.b39bc858.css",
     "main.js": "/expenses-chart-challenge/static/js/main.5c655cbf.js",
     "index.html": "/expenses-chart-challenge/index.html",
-    "main.85d4ded3.css.map": "/expenses-chart-challenge/static/css/main.85d4ded3.css.map",
+    "main.b39bc858.css.map": "/expenses-chart-challenge/static/css/main.b39bc858.css.map",
     "main.5c655cbf.js.map": "/expenses-chart-challenge/static/js/main.5c655cbf.js.map"
   },
   "entrypoints": [
-    "static/css/main.85d4ded3.css",
+    "static/css/main.b39bc858.css",
     "static/js/main.5c655cbf.js"
   ]
 }
